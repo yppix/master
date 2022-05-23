@@ -31,6 +31,9 @@ const Layout = () => {
                             <ListItem>
                                 <CustomLink to='/pages/profile'>Profile</CustomLink>
                             </ListItem>
+                            <ListItem>
+                                <CustomLink to='/pages/counter'>Counter</CustomLink>
+                            </ListItem>
                         </List>
                     </header>
                     <main>
