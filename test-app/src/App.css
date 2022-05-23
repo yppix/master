@@ -28,6 +28,70 @@
   color: #61dafb;
 }
 
+.container {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.top-menu{
+  display: flex;
+}
+
+.top-menu a {
+  color: black;
+  text-decoration: none;
+}
+
+.top-menu a:active {
+  color: greenyellow;
+  text-decoration: none;
+}
+
+.chats{
+  display: flex;
+}
+
+.chats-nav{
+  flex-grow: 1;
+  border-right: 1px solid #282c34;
+  margin-right: 15px;
+}
+
+.chat-link{
+
+}
+
+.chats-view{
+  flex-grow: 2;
+  margin-right: 150px;
+}
+
+.form-mess{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.input-form-field{
+  margin-bottom: 15px;
+}
+
+.message-title{
+  font-size: 19px;
+  font-weight: 600;
+  font-family: Arial sans-serif;
+}
+
+.item-message{
+  font-size: 15px;
+  font-weight: 400;
+  font-family: Arial sans-serif;
+  border-bottom: 1px solid #61dafb;
+  color: #282c34;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
