@@ -5,6 +5,8 @@ import Layout from "./components/Layout";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
+import Counter from "./pages/Counter";
+
 
 function App() {
 
@@ -14,6 +16,7 @@ function App() {
                     <Route path='/pages/home' element={<Home/>}/>
                     <Route path='/pages/chat' element={<Chat/>}/>
                     <Route path='/pages/profile' element={<Profile/>}/>
+                    <Route path='/pages/counter' element={<Counter/>}/>
                     <Route path='*' element={<NotFound/>}/>
                 </Route>
             </Routes>
