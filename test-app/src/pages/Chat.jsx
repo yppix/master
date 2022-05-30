@@ -1,67 +1,57 @@
-import React, {useRef, useState} from 'react';
+import React, { useState} from 'react';
 import {Box, ListItem, ListItemText} from "@mui/material";
 import {Button, List, TextField} from "@material-ui/core";
 import CustomLink from "../components/CustomLink";
+import {useDispatch, useSelector} from "react-redux";
 
 const Chat = () => {
-    const inputElement = useRef(null);
-    const [chats, addChat] = useState([
-        {id: 1, name: 'First chat'},
-        {id: 2, name: 'Second chat'},
-        {id: 3, name: 'Third chat'},
-    ]);
+    const dispatch = useDispatch();
 
-    const [objMsgLists, addMessage] = useState([]);
-    const [author, addName] = useState('');
-    const [txt, addTxt] = useState('');
+    const chats = useSelector(state => state.chats.chats)
+    const [name, setName] = useState('');
 
-    const sendMessage = (event) => {
-        event.preventDefault();
-
-        let random = Math.random();
-        addMessage([
-            ...objMsgLists,
-            {
-                author: author,
-                txt: txt,
-                id: random,
-            }
-        ]);
-        inputElement.current.focus();
+    const deleteHandler = (id) =>{
+        dispatch({type: 'deleteChat', payload: id})
     }
+
+    const handleChange = (e) =>{
+        setName(e);
+    }
+
+    const addHandler = () => {
+        let random = Math.random();
+        console.log(name)
+        let obj = {
+            id: random,
+            name: name
+        }
+        dispatch({type:'addChat', payload: obj})
+    }
+
     return (
         <div className="chats">
             <div className="chats-nav">
                 <List>
                     {chats.map((item) => {
                         return (<ListItem key={item.id} className="chat-link">
-                            <CustomLink  to={`/pages/chat/${item.id}`}>{item.name}</CustomLink>
+                            <CustomLink  to={`/pages/speak/${item.id}`}>{item.name}</CustomLink>
+                            <Button  style={{maxWidth: '150px', maxHeight: '150px', minWidth: '50px', minHeight: '50px', fontSize: '12px', marginLeft: '10px'}}
+                                     variant="outlined" onClick={() => deleteHandler(item.id)}>
+                                Delete chat
+                            </Button>
                             </ListItem>)
                     })
                     }
+                    <div className="add-chat">
+                    <TextField id="name" label="Chat name" variant="outlined"
+                               onChange={(e) => handleChange(e.target.value)}
+                               margin="normal"/>
+                    <Button  style={{maxWidth: '150px', maxHeight: '100px', minWidth: '50px', minHeight: '55px', fontSize: '12px', marginLeft: '10px'}}
+                             variant="outlined" value={name} onClick={() => addHandler()}>
+                        Add chat
+                    </Button>
+                    </div>
                 </List>
-            </div>
-            <div className="chats-view">
-                <h3 className="message-title">Messages</h3>
-                {objMsgLists.map((item) => {
-                    return (
-                        <div key={item.id} className="item-message">
-                            <div>Автор: {item.author}</div>
-                            <div>Сообщение: {item.txt}</div>
-                        </div>)
-                })
-                }
-                <Box component="form" noValidate className="form-mess"
-                     autoComplete="off" onSubmit={sendMessage}>
-                    <TextField id="author" label="Имя" variant="outlined"
-                               onChange={(e) => addName(e.target.value)}
-                               ref={inputElement} margin="normal"/>
-
-                    <TextField id="txt" multiline label="Сообщение" variant="outlined" margin="normal"
-                               onChange={(e) => addTxt(e.target.value)}
-                               ref={inputElement}/>
-                    <Button type="submit" variant="outlined" color="primary" sx={{mt: 10}}>Отправить</Button>
-                </Box>
             </div>
         </div>
     );

@@ -6,6 +6,7 @@ import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import Counter from "./pages/Counter";
+import Speak from "./pages/Speak";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
                 <Route path={'/'} element={<Layout/>}>
                     <Route path='/pages/home' element={<Home/>}/>
                     <Route path='/pages/chat' element={<Chat/>}/>
+                    <Route path='/pages/speak/:id' element={<Speak/>}/>
                     <Route path='/pages/profile' element={<Profile/>}/>
                     <Route path='/pages/counter' element={<Counter/>}/>
                     <Route path='*' element={<NotFound/>}/>
