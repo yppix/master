@@ -64,9 +64,7 @@ const Fetch = () => {
             </div>
         )
     }
-
-    console.log(error)
-
+    
     if(error){
         return (
             <button onClick={handleError}>Try again</button>
