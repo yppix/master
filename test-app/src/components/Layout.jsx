@@ -34,6 +34,9 @@ const Layout = () => {
                             <ListItem>
                                 <CustomLink to='/pages/counter'>Counter</CustomLink>
                             </ListItem>
+                            <ListItem>
+                                <CustomLink to='/pages/fetch'>Doggo</CustomLink>
+                            </ListItem>
                         </List>
                     </header>
                     <main>

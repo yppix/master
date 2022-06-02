@@ -58,8 +58,15 @@
   margin-right: 15px;
 }
 
-.chat-link{
+.doggo{
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
 
+.doggo img {
+  max-width: 700px;
+  max-height: 700px;
 }
 
 .add-chat{

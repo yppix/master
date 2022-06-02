@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import Counter from "./pages/Counter";
 import Speak from "./pages/Speak";
+import Fetch from "./pages/Fetch";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
                     <Route path='/pages/speak/:id' element={<Speak/>}/>
                     <Route path='/pages/profile' element={<Profile/>}/>
                     <Route path='/pages/counter' element={<Counter/>}/>
+                    <Route path='/pages/fetch' element={<Fetch/>}/>
                     <Route path='*' element={<NotFound/>}/>
                 </Route>
             </Routes>
