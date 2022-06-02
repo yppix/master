@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import {Box} from "@mui/material";
 import {Button, TextField} from "@material-ui/core";
+import {sendingMessage} from "../redux/action";
 
 const Speak = () => {
     const dispatch = useDispatch();
@@ -13,14 +14,9 @@ const Speak = () => {
     const chats = useSelector(state => state.chats.speaks);
 
     const speaks = chats.filter((speak) => {
-        console.log(speak);
         if(!id) return true;
         return speak.chatId === Number(id);
     })
-
-
-    console.log(speaks);
-    console.log(id)
 
     const [author, addName] = useState('');
     const [txt, addTxt] = useState('');
@@ -44,9 +40,7 @@ const Speak = () => {
                 author: author,
                 txt: txt,
             };
-        //console.log(obj)
-        dispatch({type:'addMsg', payload: obj})
-
+        dispatch(sendingMessage(obj))
         inputElement.current.focus();
     }
 

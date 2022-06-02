@@ -3,6 +3,7 @@ import {Box, ListItem, ListItemText} from "@mui/material";
 import {Button, List, TextField} from "@material-ui/core";
 import CustomLink from "../components/CustomLink";
 import {useDispatch, useSelector} from "react-redux";
+import {addChat, deleteChat} from "../redux/action";
 
 const Chat = () => {
     const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const Chat = () => {
     const [name, setName] = useState('');
 
     const deleteHandler = (id) =>{
-        dispatch({type: 'deleteChat', payload: id})
+        dispatch(deleteChat(id))
     }
 
     const handleChange = (e) =>{
@@ -25,7 +26,7 @@ const Chat = () => {
             id: random,
             name: name
         }
-        dispatch({type:'addChat', payload: obj})
+        dispatch(addChat(obj))
     }
 
     return (
