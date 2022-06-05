@@ -20,6 +20,34 @@ export const registrationReducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload
             }
+        case types.LOGIN_START:
+            return {
+                ...state
+            }
+        case types.LOGIN_SUCCESS:
+            return {
+                ...state,
+                currentUser: action.payload
+            }
+        case types.LOGIN_ERROR:
+            return {
+                ...state,
+                error: action.payload
+            }
+        case types.LOGOUT_START:
+            return {
+                ...state
+            }
+        case types.LOGOUT_SUCCESS:
+            return {
+                ...state,
+                currentUser: null
+            }
+        case types.LOGOUT_ERROR:
+            return {
+                ...state,
+                error: action.payload
+            }
         default:
             return state;
     }
