@@ -37,6 +37,12 @@ const Layout = () => {
                             <ListItem>
                                 <CustomLink to='/pages/fetch'>Doggo</CustomLink>
                             </ListItem>
+                            <ListItem>
+                                <CustomLink to='/pages/register'>Registration</CustomLink>
+                            </ListItem>
+                            <ListItem>
+                                <CustomLink to='/pages/login'>Login</CustomLink>
+                            </ListItem>
                         </List>
                     </header>
                     <main>
