@@ -6,6 +6,9 @@ import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 import thunk from "redux-thunk"
 import {todosReducer} from "./reducers/todoReducer";
+import {registrationReducer} from "./reducers/registrationReducer";
+import {profileReducer} from "./reducers/profileReducer";
+
 
 const logger = createLogger({
     predicate: (getState, action) => action.type === 'deleteChat'
@@ -13,7 +16,9 @@ const logger = createLogger({
 
 const mixReducers = (combineReducers({
     chats: chatReducer,
-    todos: todosReducer
+    todos: todosReducer,
+    registration: registrationReducer,
+    profiled: profileReducer
 }));
 
 const persistConfig = {
