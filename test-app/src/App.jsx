@@ -12,6 +12,7 @@ import Fetch from "./pages/Fetch";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
+import ViewProfile from "./pages/ViewProfile";
 
 
 function App() {
@@ -35,6 +36,14 @@ function App() {
                     <Route path='/pages/profile' element={
                         <ProtectedRoutes>
                             <Profile/>
+                        </ProtectedRoutes>}/>
+                    <Route path='/update/:id' element={
+                        <ProtectedRoutes>
+                            <Profile/>
+                        </ProtectedRoutes>}/>
+                    <Route path='/pages/view/:id' element={
+                        <ProtectedRoutes>
+                            <ViewProfile/>
                         </ProtectedRoutes>}/>
                     <Route path='/pages/counter' element={<Counter/>}/>
                     <Route path='/pages/fetch' element={<Fetch/>}/>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, ListItem} from "@material-ui/core";
 import {NavLink, useNavigate} from "react-router-dom";
 import {List, ListItemText} from "@mui/material";
@@ -32,6 +32,7 @@ const Home = () => {
                     <NavLink to='/pages/chat'>Chat</NavLink>
                 </ListItem>
             </List>
+
 
             <Button onClick={handleAuth} variant="outlined" color="primary" sx={{mt: 10}}>Exit</Button>
 

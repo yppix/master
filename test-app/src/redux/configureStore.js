@@ -7,6 +7,7 @@ import persistStore from "redux-persist/es/persistStore";
 import thunk from "redux-thunk"
 import {todosReducer} from "./reducers/todoReducer";
 import {registrationReducer} from "./reducers/registrationReducer";
+import {profileReducer} from "./reducers/profileReducer";
 
 
 const logger = createLogger({
@@ -16,7 +17,8 @@ const logger = createLogger({
 const mixReducers = (combineReducers({
     chats: chatReducer,
     todos: todosReducer,
-    registration: registrationReducer
+    registration: registrationReducer,
+    profiled: profileReducer
 }));
 
 const persistConfig = {
